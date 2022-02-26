@@ -1,0 +1,70 @@
+:root {
+  /* color */
+  --color-pink: #ffcbc0;
+  --color-dark-pink: #cb9a90;
+  --color-white: #fffef3;
+  --color-light-yellow: #ffffe8;
+  --color-yellow: #fff6b5;
+  --color-dark-yellow: #cbc385;
+  --color-black: #3f3f3f;
+  --color-grey: #a09c9c;
+
+  /* size */
+  --font-big: 40px;
+  --font-medium: 30px;
+  --font-regular: 22px;
+  --font-small: 16px;
+
+  /* weight */
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  --weight-regular: 400;
+}
+
+* {
+  font-family: 'PT Sans', sans-serif;
+  box-sizing: border-box;
+  color: var(--color-black);
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-pink);
+  margin: 0cm;
+}
+
+.container {
+  width: 70%;
+  height: 100%;
+  background-color: var(--color-light-yellow);
+  margin: auto;
+  text-align: center;
+}
+
+.header {
+  background-color: var(--color-yellow);
+  padding-bottom: 20px;
+  padding-top: 15px;
+}
+.header__front {
+  font-size: var(--font-small);
+  position: relative;
+  left: -85px;
+  top: 10px;
+  color: var(--color-grey);
+}
+.header__back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-big);
+  font-weight: var(--weight-bold);
+}
+.fa-basket-shopping {
+  margin: 0 10px;
+  font-size: var(--font-big);
+}
