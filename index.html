@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>what's in my shopping bag</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/2fd6e9de1d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- header -->
+    <header class="header">
+      <div class="header__front">What's in my</div>
+      <div class="header__back">
+        <div class="header__back-title">Shopping bag</div>
+        <i class="fa-solid fa-basket-shopping"></i>
+      </div>
+    </header>
+    <!-- main -->
+    <main class="main">
+      <div class="item">
+        <div class="place">Costco</div>
+        <div class="item__desc">
+          <div class="desc__name">Cheese cake</div>
+          <div class="desc__price">
+            <i class="fa-solid fa-won-sign"></i>
+            <div class="price__number">10,000</div>
+          </div>
+          <i class="fa-solid fa-trash-can"></i>
+        </div>
+      </div>
+    </main>
+    <!-- footer -->
+    <footer class="footer">
+      <div class="footer__left">
+        <div class="footer__item">
+          <input type="text" class="footer__itemPlace" />
+          <input type="text" class="footer__itemPrice" />
+        </div>
+        <input type="text" class="footer__itemName" />
+      </div>
+      <button class="footer__add">add</button>
+    </footer>
+  </body>
+</html>
