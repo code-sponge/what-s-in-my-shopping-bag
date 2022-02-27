@@ -1,11 +1,11 @@
-window.onload = () => {
-  const addBtn = document.querySelector('.fa-square-plus');
-  const removeBtn = document.querySelector('.fa-trash-can');
-  const list = document.querySelector('.itemlist');
+const addBtn = document.querySelector('.fa-square-plus');
+const removeBtn = document.querySelector('.fa-trash-can');
+const list = document.querySelector('.itemlist');
+
+function makeNode() {
   let place = document.querySelector('.footer__itemPlace').value;
   let price = document.querySelector('.footer__itemPrice').value;
   let itemName = document.querySelector('.footer__itemName').value;
-
   const item = document.createElement('li');
   item.setAttribute('class', 'item');
   const main__left = document.createElement('div');
@@ -45,10 +45,29 @@ window.onload = () => {
   desc__name.appendChild(itemNameText);
   price__number.appendChild(priceText);
 
-  addBtn.addEventListener('click', (e) => {
+  if (!place) {
+    alert('please input a place.');
+  } else if (!price) {
+    alert('please input a price');
+  } else if (!itemName) {
+    alert('please input a item');
+  } else {
     list.appendChild(item);
-    place = '';
-    itemName = '';
-    price = '';
-  });
-};
+  }
+}
+/* 
+function removeItem(e) {
+  const itemlist = document.querySelector('.itemlist');
+  itemlist.removeChild(e.currentTarget.parentNode);
+} */
+
+addBtn.addEventListener('click', (e) => {
+  makeNode();
+  document.querySelector('.footer__itemPlace').value = '';
+  document.querySelector('.footer__itemPrice').value = '';
+  document.querySelector('.footer__itemName').value = '';
+});
+
+removeBtn.addEventListener('click', (e) => {
+  list.removeChild(e.currentTarget.parentNode);
+});
