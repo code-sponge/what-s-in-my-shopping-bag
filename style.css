@@ -9,6 +9,7 @@
   --color-black: #3f3f3f;
   --color-grey: #9a9894;
   --color-semi-grey: #7d7d7d;
+  --color-semi-light-grey: #9b9b9b;
   --color-light-gray: #e8e6dc;
   --color-blue: #4c88d2;
 
@@ -53,12 +54,15 @@ body {
   background-color: var(--color-light-yellow);
   margin: auto;
   text-align: center;
+  margin-top: 120px;
+  border: none;
+  border-radius: var(--border-size);
 }
 
 /* header */
 .header {
   background-color: var(--color-yellow);
-  padding-bottom: 20px;
+  padding-bottom: 15px;
   padding-top: 15px;
   height: 15%;
 }
@@ -67,6 +71,7 @@ body {
   font-style: italic;
   position: relative;
   left: -85px;
+  top: 5px;
   color: var(--color-grey);
 }
 .header__back {
@@ -76,7 +81,7 @@ body {
   font-size: var(--font-big);
   font-weight: var(--weight-bold);
   position: relative;
-  top: -10px;
+  top: -2px;
 }
 .fa-basket-shopping {
   margin: 0 10px;
@@ -107,6 +112,12 @@ body {
   margin-bottom: 10px;
   padding: 10px;
 }
+.item.active {
+  background-color: var(--color-semi-grey);
+}
+.desc__price.active {
+  color: var(--color-white);
+}
 .main__left {
   width: 90%;
 }
@@ -131,6 +142,7 @@ body {
   display: flex;
   align-items: flex-start;
   padding-left: 5px;
+  cursor: pointer;
 }
 .desc__price {
   width: 30%;
@@ -139,7 +151,7 @@ body {
 }
 .fa-won-sign,
 .price__number {
-  color: var(--color-semi-grey);
+  color: var(--color-semi-light-grey);
   font-size: var(--font-small);
 }
 .fa-won-sign {

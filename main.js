@@ -1,5 +1,4 @@
 const addBtn = document.querySelector('.fa-square-plus');
-const removeBtn = document.querySelector('.fa-trash-can');
 const list = document.querySelector('.itemlist');
 
 function makeNode() {
@@ -8,6 +7,10 @@ function makeNode() {
   let itemName = document.querySelector('.footer__itemName').value;
   const item = document.createElement('li');
   item.setAttribute('class', 'item');
+
+  const checkbox = document.createElement('input');
+  checkbox.setAttribute('type', 'checkbox');
+
   const main__left = document.createElement('div');
   main__left.setAttribute('class', 'main__left');
   const placeName = document.createElement('div');
@@ -34,6 +37,7 @@ function makeNode() {
   placeName.appendChild(locationIcon);
   main__left.appendChild(placeName);
   main__left.appendChild(item__desc);
+  item.appendChild(checkbox);
   item.appendChild(main__left);
   item.appendChild(trashCanIcon);
 
@@ -45,6 +49,15 @@ function makeNode() {
   desc__name.appendChild(itemNameText);
   price__number.appendChild(priceText);
 
+  trashCanIcon.onclick = (e) => {
+    list.removeChild(e.currentTarget.parentNode);
+  };
+
+  desc__name.onclick = (e) => {
+    let itemToToggle = e.currentTarget.parentNode.parentNode.parentNode;
+    itemToToggle.classList.toggle('active');
+  };
+
   if (!place) {
     alert('please input a place.');
   } else if (!price) {
@@ -55,19 +68,10 @@ function makeNode() {
     list.appendChild(item);
   }
 }
-/* 
-function removeItem(e) {
-  const itemlist = document.querySelector('.itemlist');
-  itemlist.removeChild(e.currentTarget.parentNode);
-} */
 
-addBtn.addEventListener('click', (e) => {
+addBtn.addEventListener('click', () => {
   makeNode();
   document.querySelector('.footer__itemPlace').value = '';
   document.querySelector('.footer__itemPrice').value = '';
   document.querySelector('.footer__itemName').value = '';
-});
-
-removeBtn.addEventListener('click', (e) => {
-  list.removeChild(e.currentTarget.parentNode);
 });
