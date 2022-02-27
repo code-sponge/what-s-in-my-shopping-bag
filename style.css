@@ -8,7 +8,7 @@
   --color-dark-yellow: #d5cc8b;
   --color-black: #3f3f3f;
   --color-grey: #9a9894;
-  --color-semi-grey: #858480;
+  --color-semi-grey: #7d7d7d;
   --color-light-gray: #e8e6dc;
   --color-blue: #4c88d2;
 
@@ -103,7 +103,7 @@ body {
   padding: 10px;
 }
 .main__left {
-  flex-grow: 10;
+  width: 90%;
 }
 .place,
 .fa-location-dot {
@@ -122,15 +122,15 @@ body {
   display: flex;
 }
 .desc__name {
-  flex-grow: 2;
+  width: 70%;
   display: flex;
   align-items: flex-start;
   padding-left: 5px;
 }
 .desc__price {
+  width: 30%;
   display: flex;
   align-items: center;
-  flex-grow: 1;
 }
 .fa-won-sign,
 .price__number {
@@ -142,13 +142,13 @@ body {
   margin-right: 5px;
 }
 .fa-trash-can {
-  flex-grow: 1;
+  width: 10%;
   cursor: pointer;
   transition: all var(--animation-duration) ease;
 }
 .fa-trash-can:hover,
 .fa-square-plus:hover {
-  transform: scale(1.15);
+  transform: scale(1.1);
 }
 /* footer */
 .footer {
