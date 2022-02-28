@@ -4,11 +4,24 @@ const place = document.querySelector('.footer__itemPlace');
 const price = document.querySelector('.footer__itemPrice');
 const itemName = document.querySelector('.footer__itemName');
 
-function createElement(tag, classname) {
-  const newNode = document.createElement(tag);
-  newNode.setAttribute('class', classname);
-  return newNode;
-}
+addBtn.addEventListener('click', makeNode);
+
+place.addEventListener('keypress', (event) => {
+  console.log('key');
+  if (event.keyCode === 13) {
+    makeNode();
+  }
+});
+price.addEventListener('keypress', (event) => {
+  if (event.keyCode === 13) {
+    makeNode();
+  }
+});
+itemName.addEventListener('keypress', (event) => {
+  if (event.keyCode === 13) {
+    makeNode();
+  }
+});
 
 function makeNode() {
   const placeValue = place.value;
@@ -53,8 +66,9 @@ function makeNode() {
     let itemToToggle = item;
     itemToToggle.classList.toggle('active');
   };
-
-  item.scrollIntoView({ block: 'center' });
+  requestAnimationFrame(() => {
+    item.scrollIntoView({ block: 'center' });
+  });
 
   place.value = '';
   price.value = '';
@@ -72,22 +86,8 @@ function makeNode() {
   }
 }
 
-addBtn.addEventListener('click', () => {
-  makeNode();
-});
-
-place.addEventListener('keypress', (event) => {
-  if (event.keyCode === 13) {
-    makeNode();
-  }
-});
-price.addEventListener('keypress', (event) => {
-  if (event.keyCode === 13) {
-    makeNode();
-  }
-});
-itemName.addEventListener('keypress', (event) => {
-  if (event.keyCode === 13) {
-    makeNode();
-  }
-});
+function createElement(tag, classname) {
+  const newNode = document.createElement(tag);
+  newNode.setAttribute('class', classname);
+  return newNode;
+}
