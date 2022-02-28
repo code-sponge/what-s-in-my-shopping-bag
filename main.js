@@ -1,34 +1,32 @@
 const addBtn = document.querySelector('.fa-square-plus');
 const list = document.querySelector('.itemlist');
+const place = document.querySelector('.footer__itemPlace');
+const price = document.querySelector('.footer__itemPrice');
+const itemName = document.querySelector('.footer__itemName');
+
+function createElement(tag, classname) {
+  const newNode = document.createElement(tag);
+  newNode.setAttribute('class', classname);
+  return newNode;
+}
 
 function makeNode() {
-  let place = document.querySelector('.footer__itemPlace').value;
-  let price = document.querySelector('.footer__itemPrice').value;
-  let itemName = document.querySelector('.footer__itemName').value;
-  const item = document.createElement('li');
-  item.setAttribute('class', 'item');
+  const placeValue = place.value;
+  const priceValue = price.value;
+  const itemNameValue = itemName.value;
 
-  const checkbox = document.createElement('input');
+  const item = createElement('li', 'item');
+  const checkbox = createElement('input', 'checkbox');
   checkbox.setAttribute('type', 'checkbox');
-
-  const main__left = document.createElement('div');
-  main__left.setAttribute('class', 'main__left');
-  const placeName = document.createElement('div');
-  placeName.setAttribute('class', 'place');
-  const locationIcon = document.createElement('i');
-  locationIcon.setAttribute('class', 'fa-solid fa-location-dot');
-  const item__desc = document.createElement('div');
-  item__desc.setAttribute('class', 'item__desc');
-  const desc__name = document.createElement('div');
-  desc__name.setAttribute('class', 'desc__name');
-  const desc__price = document.createElement('div');
-  desc__price.setAttribute('class', 'desc__price');
-  const wonSignIcon = document.createElement('i');
-  wonSignIcon.setAttribute('class', 'fa-solid fa-won-sign');
-  const price__number = document.createElement('div');
-  price__number.setAttribute('class', 'price__number');
-  const trashCanIcon = document.createElement('i');
-  trashCanIcon.setAttribute('class', 'fa-solid fa-trash-can');
+  const main__left = createElement('div', 'main__left');
+  const placeName = createElement('div', 'place');
+  const locationIcon = createElement('i', 'fa-solid fa-location-dot');
+  const item__desc = createElement('div', 'item__desc');
+  const desc__name = createElement('div', 'desc__name');
+  const desc__price = createElement('div', 'desc__price');
+  const wonSignIcon = createElement('i', 'fa-solid fa-won-sign');
+  const price__number = createElement('div', 'price__number');
+  const trashCanIcon = createElement('i', 'fa-solid fa-trash-can');
 
   desc__price.appendChild(wonSignIcon);
   desc__price.appendChild(price__number);
@@ -40,29 +38,34 @@ function makeNode() {
   item.appendChild(checkbox);
   item.appendChild(main__left);
   item.appendChild(trashCanIcon);
-
-  let placeText = document.createTextNode(place);
-  let priceText = document.createTextNode(price);
-  let itemNameText = document.createTextNode(itemName);
-
+  const placeText = document.createTextNode(placeValue);
+  const priceText = document.createTextNode(priceValue);
+  const itemNameText = document.createTextNode(itemNameValue);
   placeName.appendChild(placeText);
   desc__name.appendChild(itemNameText);
   price__number.appendChild(priceText);
 
-  trashCanIcon.onclick = (e) => {
-    list.removeChild(e.currentTarget.parentNode);
+  trashCanIcon.onclick = () => {
+    list.removeChild(item);
   };
 
-  desc__name.onclick = (e) => {
-    let itemToToggle = e.currentTarget.parentNode.parentNode.parentNode;
+  checkbox.onclick = () => {
+    let itemToToggle = item;
     itemToToggle.classList.toggle('active');
   };
 
-  if (!place) {
+  item.scrollIntoView({ block: 'center' });
+
+  place.value = '';
+  price.value = '';
+  itemName.value = '';
+  place.focus();
+
+  if (!placeValue) {
     alert('please input a place.');
-  } else if (!price) {
+  } else if (!priceValue) {
     alert('please input a price');
-  } else if (!itemName) {
+  } else if (!itemNameValue) {
     alert('please input a item');
   } else {
     list.appendChild(item);
@@ -71,7 +74,20 @@ function makeNode() {
 
 addBtn.addEventListener('click', () => {
   makeNode();
-  document.querySelector('.footer__itemPlace').value = '';
-  document.querySelector('.footer__itemPrice').value = '';
-  document.querySelector('.footer__itemName').value = '';
+});
+
+place.addEventListener('keypress', (event) => {
+  if (event.keyCode === 13) {
+    makeNode();
+  }
+});
+price.addEventListener('keypress', (event) => {
+  if (event.keyCode === 13) {
+    makeNode();
+  }
+});
+itemName.addEventListener('keypress', (event) => {
+  if (event.keyCode === 13) {
+    makeNode();
+  }
 });
