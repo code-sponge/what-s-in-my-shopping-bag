@@ -116,12 +116,7 @@ body {
   margin-bottom: 10px;
   padding: 3px 10px;
 }
-.item.active {
-  background-color: var(--color-semi-grey);
-}
-.desc__price.active {
-  color: var(--color-white);
-}
+
 .main__left {
   width: 90%;
 }
