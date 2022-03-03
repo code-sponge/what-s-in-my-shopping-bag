@@ -2,4 +2,4 @@
 
 shopping list application
 
-<img src="gif/submit.gif" width="200" height="400"/>
+<img src="gif/submit.gif" width="240" height="400"/>
