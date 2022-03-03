@@ -2,4 +2,4 @@
 
 shopping list application
 
-![예시 이미지](gif/submit.gif)
+<img src="gif/submit.gif" width="200" height="400"/>
